@@ -40,7 +40,7 @@ export default async function TrucksPage() {
           </table>
         </div>
 
-        <form action={createTruck} className="bg-white rounded-card border border-slate-100 p-5 h-fit space-y-3">
+        <form action={createTruck as unknown as (formData: FormData) => void} className="bg-white rounded-card border border-slate-100 p-5 h-fit space-y-3">
           <h3 className="font-semibold text-sm mb-1">Add truck</h3>
           <input name="unit_number" required placeholder="Unit number" className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm" />
           <input name="make" placeholder="Make" className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm" />

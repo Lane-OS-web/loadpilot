@@ -59,7 +59,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, status: "needs_review", extracted });
   }
 
-  async function upsertFacility(city: string, state: string | null) {
+  async function upsertFacility(companyId: string, city: string, state: string | null) {
     const { data: existing } = await supabase
       .from("facilities")
       .select("id")
@@ -76,8 +76,8 @@ export async function POST(req: Request) {
     return created!.id;
   }
 
-  const originId = await upsertFacility(extracted.origin_city!, extracted.origin_state);
-  const destinationId = await upsertFacility(extracted.destination_city!, extracted.destination_state);
+  const originId = await upsertFacility(companyId, extracted.origin_city!, extracted.origin_state);
+  const destinationId = await upsertFacility(companyId, extracted.destination_city!, extracted.destination_state);
 
   let brokerId: string | null = null;
   if (extracted.broker_name) {

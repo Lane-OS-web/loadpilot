@@ -43,7 +43,7 @@ export default async function DriversPage() {
           </table>
         </div>
 
-        <form action={createDriver} className="bg-white rounded-card border border-slate-100 p-5 h-fit space-y-3">
+        <form action={createDriver as unknown as (formData: FormData) => void} className="bg-white rounded-card border border-slate-100 p-5 h-fit space-y-3">
           <h3 className="font-semibold text-sm mb-1">Add driver</h3>
           <input name="full_name" required placeholder="Full name" className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm" />
           <input name="phone" placeholder="Phone" className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm" />

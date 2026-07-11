@@ -19,7 +19,7 @@ const LoadSchema = z.object({
 export async function createLoad(formData: FormData) {
   const parsed = LoadSchema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) {
-    return { error: parsed.error.issues[0].message };
+    return { error: parsed.error.issues[0]?.message ?? "Invalid input" };
   }
 
   const supabase = createClient();

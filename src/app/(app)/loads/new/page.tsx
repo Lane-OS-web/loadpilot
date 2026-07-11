@@ -7,7 +7,7 @@ export default function NewLoadPage() {
       <Link href="/loads" className="text-sm text-slate-500 mb-4 inline-block">← Back to load board</Link>
       <h1 className="font-display font-bold text-xl mb-6">Book a load</h1>
 
-      <form action={createLoad} className="bg-white rounded-card border border-slate-100 p-6 space-y-5">
+      <form action={createLoad as unknown as (formData: FormData) => void} className="bg-white rounded-card border border-slate-100 p-6 space-y-5">
         <div>
           <label className="block text-xs font-semibold text-slate-500 mb-1">Load number</label>
           <input name="load_number" required placeholder="LP-48213" className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm font-mono" />
