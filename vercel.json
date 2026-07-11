@@ -1,5 +1,5 @@
 {
   "crons": [
-    { "path": "/api/cron/revenue-recovery", "schedule": "0 * * * *" }
+    { "path": "/api/cron/revenue-recovery", "schedule": "0 0 * * *" }
   ]
 }
